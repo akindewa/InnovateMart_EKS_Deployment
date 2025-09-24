@@ -14,3 +14,9 @@ tfplan
 *.pem
 .env
 EOF
+
+*.json
+*credentials*
+*.pem
+*.key
+.env
