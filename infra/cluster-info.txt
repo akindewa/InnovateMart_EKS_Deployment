@@ -1,0 +1,2 @@
+arn:aws:iam::919113286163:user/eks-developer-readonlyCluster: innovatemart-prod-eks
+Region: eu-west-1

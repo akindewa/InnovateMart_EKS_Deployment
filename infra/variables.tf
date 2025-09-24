@@ -7,5 +7,5 @@ variable "region" {
 
 variable "cluster_version" {
   description = "EKS Kubernetes version"
-  default     = "1.30"
+  default     = "1.32"
 }
