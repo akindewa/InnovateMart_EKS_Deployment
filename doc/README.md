@@ -152,17 +152,3 @@ Even failed resources cost money.
 Terraform errors taught me to read logs carefully.
 
 
-<!-- public_subnets = [
-  "subnet-03a0ef11fb68c2837",
-  "subnet-0fa03e20b8ffa777c",
-  "subnet-0d340b67b49d8ff59",
-]
-vpc_id = "vpc-0aefe89f45dd575ef" -->
-
-public_subnets = [
-  "subnet-065cf3c06af7430c7",
-  "subnet-0ae2a5ea4b404a72f",
-  "subnet-05431008ce993d875",
-]
-vpc_id = "vpc-06938623ae16559d3"
-[akindewa@oluwadunni infra]$ 
