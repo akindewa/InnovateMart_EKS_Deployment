@@ -9,3 +9,8 @@ override.tf.json
 *_override.tf.json
 *.tfplan
 tfplan
+*.tfvars
+*credentials*
+*.pem
+.env
+EOF
