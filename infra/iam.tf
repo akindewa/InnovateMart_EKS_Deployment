@@ -32,3 +32,4 @@ output "credential_generation_command" {
   description = "Command to generate access credentials for the developer user"
   value       = "aws iam create-access-key --user-name ${aws_iam_user.developer.name}"
 }
+

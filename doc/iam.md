@@ -10,16 +10,13 @@
   - [Step 2: Configure AWS CLI](#step-2-configure-aws-cli)
   - [Step 3: Configure kubectl](#step-3-configure-kubectl)
 - [Usage](#usage)
-  - [📊 Monitoring and Debugging Commands](#-monitoring-and-debugging-commands)
-  - [❌ Restricted Operations](#-restricted-operations)
-  - [💡 Common Use Cases](#-common-use-cases)
-  - [🔧 Useful Aliases](#-useful-aliases)
+  - [ Monitoring and Debugging Commands](#monitoring-and-debugging-commands)
+  - [ Restricted Operations](#restricted-operations)
+  - [ Common Use Cases](#common-use-cases)
+
 - [Troubleshooting](#troubleshooting)
 - [Debug Commands](#debug-commands)
-- [Contributing](#contributing)
-- [Support](#support)
 - [Cluster Information](#cluster-information)
-- [License](#license)
 
 ---
 
@@ -69,7 +66,7 @@ aws eks update-kubeconfig --region eu-west-1 --name innovatemart-prod-eks --prof
 ```
 
 4. Test access:
-```
+```bash
 kubectl get pods --all-namespaces
 ```
 
@@ -85,7 +82,7 @@ It contains:
 
 ### Step 2: Configure AWS CLI
 Create a dedicated profile for development access:
-```
+```bash
    aws configure --profile developer
 ```
 Enter when prompted:
@@ -103,11 +100,11 @@ Enter when prompted:
 aws sts get-caller-identity --profile developer
 ```
 **Expected Response**
-```
+```bash
 {
     "UserId": "AIDA...",
-    "Account": "919113286163",
-    "Arn": "arn:aws:iam::919113286163:user/eks-developer-readonly"
+    "Account": "************",
+    "Arn": "arn:aws:iam::************:user/eks-developer-readonly"
 }
 ```
 
@@ -264,4 +261,7 @@ kubectl get nodes
 | Kubernetes Version | 1.32                  |
 | Environment        | dev                   |
 
+
+---
+Return to [Main Deployment Guide](../README.md)
 
