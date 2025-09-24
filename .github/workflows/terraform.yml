@@ -1,4 +1,4 @@
-name: 🚀 Deploy EKS Infrastructure
+name:  Deploy EKS Infrastructure
 
 on:
   push:
@@ -8,65 +8,65 @@ on:
 
 jobs:
   terraform-plan:
-    name: "📋 Terraform Plan"
+    name: " Terraform Plan"
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
     
     steps:
-    - name: "📥 Checkout Code"
+    - name: "Checkout Code"
       uses: actions/checkout@v4
       
-    - name: "⚙️ Setup Terraform"
+    - name: " Setup Terraform"
       uses: hashicorp/setup-terraform@v3
       
-    - name: "🔐 Configure AWS Credentials"
+    - name: " Configure AWS Credentials"
       uses: aws-actions/configure-aws-credentials@v4
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: eu-west-1
         
-    - name: "📁 Terraform Init"
+    - name: " Terraform Init"
       run: terraform init
       working-directory: infra  # ← Points to infra folder
       
-    - name: "🔍 Terraform Validate"
+    - name: " Terraform Validate"
       run: terraform validate
       working-directory: infra  # ← Points to infra folder
       
-    - name: "📊 Terraform Plan"
+    - name: " Terraform Plan"
       run: terraform plan
       working-directory: infra  # ← Points to infra folder
 
   terraform-apply:
-    name: "🚀 Terraform Apply"
+    name: " Terraform Apply"
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     
     steps:
-    - name: "📥 Checkout Code"
+    - name: "Checkout Code"
       uses: actions/checkout@v4
       
-    - name: "⚙️ Setup Terraform"
+    - name: " Setup Terraform"
       uses: hashicorp/setup-terraform@v3
       
-    - name: "🔐 Configure AWS Credentials"
+    - name: " Configure AWS Credentials"
       uses: aws-actions/configure-aws-credentials@v4
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: eu-west-1
         
-    - name: "📁 Terraform Init"
+    - name: " Terraform Init"
       run: terraform init
       working-directory: infra 
       
-    - name: "🚀 Terraform Apply"
+    - name: " Terraform Apply"
       run: terraform apply -auto-approve
       working-directory: infra 
       
-    - name: "✅ Deploy Kubernetes Manifests"
+    - name: " Deploy Kubernetes Manifests"
       run: |
         aws eks update-kubeconfig --region eu-west-1 --name innovatemart-prod-eks
-        kubectl apply -f ../k8s/kubernetes.yaml  # ← Deploys your app!
+        kubectl apply -f k8s/kubernetes.yaml 
         kubectl get pods -A
