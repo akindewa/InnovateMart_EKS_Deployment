@@ -79,7 +79,7 @@ kubectl get pods --all-namespaces
 Credentials are securely shared by the infrastructure team (via AWS IAM access key).
 
 It contains:
-- Access Key ID (20 characters starting with AKIA)
+- Access Key ID (20 characters)
 - Secret Access Key (40 characters)
 
 
