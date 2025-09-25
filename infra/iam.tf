@@ -33,3 +33,5 @@ output "credential_generation_command" {
   value       = "aws iam create-access-key --user-name ${aws_iam_user.developer.name}"
 }
 
+
+
